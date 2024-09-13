@@ -1,0 +1,299 @@
+﻿@model FAV_Site.Helper.LoginAndRegister;
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enregistrement et authentification</title>
+    <link rel="stylesheet" href="~/css/style2.css">
+    <link rel="stylesheet" href="~/css/media.css">
+    <link rel="icon" href="~/images/undraw_profile_pic_ic5t.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="main" style="background-color: #13131a">
+        <div class="container">
+            <div class="forms">
+                <div class="sign__blog">
+
+                    <form method="post" asp-controller="Login" asp-action="LoginHere" class="signin">
+
+                        <div class="profile__img__blog" style="margin: 0 0 10px 0; width:300px; height:270px">
+                            <img src="~/images/v_logo_s.png" alt="" class="profile" width="450" height="320">
+                        </div>
+                        <h2 class="form_title" style="color: antiquewhite;margin:0 0 50px 0">
+                            Authentification</h1>
+                            
+                           
+                            <div class="input_item">
+                                <input type="email" class="form_input form_email" required asp-for="Log_Utilisateur.Email">
+                                <label for="email" class="form_label"><i class="fas fa-envelope"></i> Email</label>
+                                <p class="error_email">Email incorrect</p>
+                            </div>
+                            
+                            <div class="input_item">
+                                <span class="passwordEye"><i class="fas fa-eye-slash"></i></span>
+                                <input type="password" class="form_input form_pass" required asp-for="Log_Utilisateur.Password">
+                                <label for="password" class="form_label"><i class="fas fa-lock"></i> Password</label>
+                            </div>
+                            <button type="submit" class="btn">Se connecter</button>
+
+                    </form>
+
+                    <form method="post" asp-controller="Login" asp-action="LogAndReg" class="register" enctype="multipart/form-data">
+
+                        <h2 class="form_title" style="color: white;">
+                            Inscription</h1>
+                            <div class="form_steps">
+                                <div class="steps">
+                                    <p class="steps_title" style="color: white;">Apropos</p>
+                                    <span class="steps_numb">1</span>
+                                </div>
+                                <div class="steps">
+                                    <p class="steps_title" style="color: white;">Confidentialité</p>
+                                    <span class="steps_numb">2</span>
+                                </div>
+                                <div class="steps">
+                                    <p class="steps_title" style="color: white;">Photo</p>
+                                    <span class="steps_numb step_end">3</span>
+                                </div>
+                            </div>
+                            <div class="register_content">
+                                <div class="form_pages">
+                                    <div class="form_page page_1">
+                                        <div class="input_item">
+                                            <input type="text" class="form_input" required asp-for="Utilisateur.Nom_ut">
+                                            <label for="name" class="form_label"><i class="fas fa-user"></i> Nom</label>
+                                        </div>
+                                        <div class="input_item">
+                                            <input type="text" class="form_input" required asp-for="Utilisateur.Prenom_ut">
+                                            <label for="username" class="form_label"><i class="fas fa-user"></i></i> Prenom</label>
+                                        </div>
+                                        <div class="input_item">
+                                            <select class="form_input" asp-for="Utilisateur.Pays_ut">
+                                                <optgroup label="Afrique">
+                                                    <option value="madagascar">Madagascar</option>
+                                                    <option value="afrique du sud">Afrique du Sud</option>
+                                                    <option value="egypte">Egypte</option>
+                                                    <option value="nigeria">Nigeria</option>
+                                                    <option value="ghana">Ghana</option>
+                                                    <option value="cameroun">Cameroun</option>
+                                                    <option value="algerie">Algerie</option>
+                                                    <option value="cote d'ivoire">Cote d'ivoire</option>
+                                                    <option value="maurice">Maurice</option>
+                                                    <option value="comore">Comore</option>
+                                                    <option value="seychelles">SeyChelles</option>
+                                                    <option value="kenya">Kenya</option>
+                                                    <option value="maroc">Maroc</option>
+                                                    <option value="mozambique">Mozambique</option>
+                                                    <option value="tunisie">Tunisie</option>
+                                                    <option value="tanzanie">Tanzanie</option>
+                                                </optgroup>
+                                                <optgroup label="Europe">
+                                                    <option value="france">France</option>
+                                                    <option value="allemagne">Allemagne</option>
+                                                    <option value="royaume-uni">Royaume-Uni</option>
+                                                    <option value="Italie">Italie</option>
+                                                    <option value="espagne">Espagne</option>
+                                                    <option value="russie">Russie</option>
+                                                    <option value="Pays-Bas">Pays-Bas</option>
+                                                    <option value="suisse">Suisse</option>
+                                                    <option value="suede">Suiède</option>
+                                                    <option value="grèce">Grèce</option>
+                                                    <option value="portugale">Portugale</option>
+                                                </optgroup>
+                                                <optgroup label="Amérique du Nord">
+                                                    <option value="Etats-Unis">Etas-Unis</option>
+                                                    <option value="Canada">Canada</option>
+                                                    <option value="Mexique">Mexique</option>
+                                                    <option value="cuba">Cuba</option>
+                                                    <option value="costa rica">Costa Rica</option>
+                                                </optgroup>
+                                                <optgroup label="Amérique du Sud">
+                                                    <option value="bresil">Brésil</option>
+                                                    <option value="argentine">Argentine</option>
+                                                    <option value="chili">Chili</option>
+                                                    <option value="perue">Pérou</option>
+                                                    <option value="venezuela">Venezuela</option>
+                                                    <option value="uruguay">Uruguay</option>
+                                                    <option value="equateur">Equateur</option>
+                                                </optgroup>
+                                                <optgroup label="Asie">
+                                                    <option value="chine">Chine</option>
+                                                    <option value="inde">Inde</option>
+                                                    <option value="japon">Japon</option>
+                                                    <option value="coree du sud">Corée du Sud</option>
+                                                    <option value="philipine">Philippines</option>
+                                                    <option value="vietnam">Vietnam</option>
+                                                    <option value="arabie saoudite">Arabie Saoudite</option>
+                                                </optgroup>
+                                                <optgroup label="Océanie">
+                                                    <option value="australie">Australie</option>
+                                                    <option value="nouvelle-zélande">Nouvelle-Zélande</option>
+                                                </optgroup>
+
+                                            </select>
+                                            <label for="phone" class="form_label"><i class="fas fa-globe"></i> Pays</label>
+                                        </div>
+                                        <div class="input_item">
+                                            <input type="text" class="form_input" required asp-for="Utilisateur.Ville_ut">
+                                            <label for="phone" class="form_label"><i class="fas fa-city"></i> Ville</label>
+                                        </div>
+                                        <div class="input_item">
+                                            <input type="text" class="form_input" required asp-for="Utilisateur.Nationnelite_ut">
+                                            <label for="phone" class="form_label"><i class="fas fa-flag"></i> Nationnalité</label>
+                                        </div>
+                                        <p style="color:red"> @ViewData["messageContact"]</p>
+                                        <p style="color:red">
+                                            @ViewData["messageContactDebut"]
+                                        </p>
+                                        <div class="input_item">
+                                            <input type="text" value="+261" class="form_input" required asp-for="Utilisateur.Contact_ut">
+                                            <label for="phone" class="form_label"><i class="fas fa-phone"></i> Contact</label>
+                                        </div>
+                                        
+                                        <div class="input_item">
+                                            <select class="form_input" asp-for="Utilisateur.Type_ut">
+                                                <option value="acheteur">Acheteur</option>
+                                                <option value="vendeur">Vendeur</option>
+                                            </select>
+                                            <label for="phone" class="form_label"><i class="fas fa-store"></i> Type utilisateur</label>
+                                        </div>
+                                        <button type="button" class="btn nextBtn">Next</button>
+                                    </div>
+                                    <div class="form_page page_2 page_password">
+                                        <p style="color: red;"> @ViewData["msgEmail"]" </p>
+                                        <div class="input_item">
+                                            
+                                            <input type="email" class="form_input form_email" required asp-for="Log_Utilisateur.Email">
+                                            <label for="email" class="form_label"><i class="fas fa-envelope"></i> Email</label>
+                                            <p class="error_email">Email incorrecte</p>
+                                        </div>
+                                        <div class="input_item password_item">
+                                            <span class="passwordEye"><i class="fas fa-eye-slash"></i></span>
+                                            <input type="password" class="form_input form_pass form_password" tabindex="-1" required asp-for="Log_Utilisateur.Password">
+                                            <label for="password" class="form_label"><i class="fas fa-lock"></i> Mot de passe</label>
+                                        </div>
+                                        <div class="password__content">
+                                            <div class="password__indicator">
+                                                <span></span>
+                                            </div>
+                                            <ul class="password__info">
+                                                <li class="password__info__text"><i class="fas fa-check-circle" id="passWeak"></i> 6 Caractère au moins</li>
+                                                <li class="password__info__text"><i class="fas fa-check-circle" id="passMedium"></i> Un chiffre au moins</li>
+                                                <li class="password__info__text"><i class="fas fa-check-circle" id="passStrong"></i> Un lettre au majuscule au moins</li>
+                                            </ul>
+                                        </div>
+                                        <div class="input_item password_item">
+                                            <span class="passwordEye"><i class="fas fa-eye-slash"></i></span>
+                                            <input type="password" class="form_input form_pass form_password" tabindex="-1" required asp-for="Confirme">
+                                            <label for="password" class="form_label"><i class="fas fa-lock"></i>Confirmer votre mot de passe</label>
+                                            <p class="error_pass">Password doesn't Match</p>
+                                        </div>
+                                        <div class="password__content">
+                                            <div class="password__indicator">
+                                                <span></span>
+                                            </div>
+                                            <ul class="password__info">
+                                                <li class="password__info__text"><i class="fas fa-check-circle" id="passWeak"></i> Minimum be at least 6 Characters</li>
+                                                <li class="password__info__text"><i class="fas fa-check-circle" id="passMedium"></i> Minimum be at least 1 Number</li>
+                                                <li class="password__info__text"><i class="fas fa-check-circle" id="passStrong"></i> Minimum be at least 1 Capital letter</li>
+                                            </ul>
+                                        </div>
+                                        <div class="register_buttons">
+                                            <button type="button" class="btn backBtn" tabindex="-1">Back</button>
+                                            <button type="button" class="btn nextBtn" tabindex="-1">Next</button>
+                                        </div>
+                                    </div>
+                                    <div class="form_page page_3">
+                                        <div class="input_item input_uploader">
+                                            <div class="form__imgUploader">
+                                                <div class="form__wrapper">
+                                                    <div class="form__image">
+                                                        <img src="" alt="" class="form__img" id="uploadedImage">
+                                                    </div>
+                                                    <div class="formUploader__content">
+                                                        <div class="formUploader__icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                                        <div class="formUploader__text" style="color: white;">Click pour choisir ton photo</div>
+                                                    </div>
+                                                    <div class="formUploader__cancel"><i class="fas fa-times"></i></div>
+                                                    <div class="formUploader__fileName"><p>File name</p></div>
+                                                </div>
+                                                <input type="file" class="imgUploader" accept=".jpg, .jpeg, .png" hidden asp-for="Photo" onchange="previewImage(this)">
+                                                <input type="hidden" asp-for="PhotoPath">
+                                            </div>
+                                        </div>
+                                        <div class="register_buttons">
+                                            <button type="button" class="btn backBtn" tabindex="-1">Back</button>
+                                            <button type="submit" class="btn register_button" tabindex="-1" disabled>Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="invalid_info">Something entered Wrong! Please check it Out</p>
+                    </form>
+                    <script>
+                        function previewImage(input) {
+                            if (input.files && input.files[0]) {
+                                const reader = new FileReader();
+                                reader.onload = function (e) {
+                                    const imgElement = document.getElementById('uploadedImage');
+                                    imgElement.src = e.target.result;
+                                    const hiddenInput = document.querySelector('[asp-for="PhotoPath"]');
+                                    hiddenInput.value = e.target.result;
+                                };
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <div class="panels__blog">
+
+                <div class="panel left__panel">
+
+                    <div class="content">
+
+                        <h3 class="panel__title">Vous n'avez pas de compte?</h3>
+                        <p class="panel__text">
+                            Créez votre compte pour accéder à une vaste sélection de produits.
+                            Rejoignez-nous pour une expérience d'achat en ligne unique et sécurisée.
+                        </p>
+                        <button class="button transparent" id="register__btn">S'inscrire</button>
+
+                    </div>
+                    <img src="/images/img_log.svg" alt="" width="400" height="400" class="panel__img">
+                </div>
+
+                <div class="panel right__panel">
+
+                    <div class="content">
+
+                        <h3 class="panel__title">J'ai déja un compte</h3>
+                        <p class="panel__text">
+                            Connectez-vous pour gérer vos produits,
+                            suivre vos commandes et optimiser vos ventes. Profitez d'une
+                            plateforme sécurisée et facile à utiliser pour développer votre activité en ligne.
+                        </p>
+                        <button class="button transparent" id="signin__btn">Se connecter</button>
+
+                    </div>
+                    <img src="~/images/img_reg.svg" alt="" class="panel__img">
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+    <script src="~/js/script.js"></script>
+
+</body>
+</html>

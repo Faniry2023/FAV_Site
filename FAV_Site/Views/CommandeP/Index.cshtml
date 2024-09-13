@@ -1,0 +1,79 @@
+﻿@model List<FAV_Site.Helper.AffichePanCom>;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comande</title>
+    <link rel="stylesheet" href="~/css/cmdView.css">
+</head>
+<body>
+    <div class="container">
+        @Html.Partial("~/Views/Accueil/Header.cshtml")
+        <h1>Mes commandes</h1>
+        <table class="cart">
+            @foreach(var item in Model)
+            {
+                <thead>
+                    <tr class="cart-header">
+                        <th colspan="5">
+                           @item.nomVendeur
+                        </th>
+                    </tr>
+                    <tr class="cart-header">
+                        <th>Produit</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th> Prix Total</th>
+                        <th>Opération</th>
+                    </tr>
+                </thead>
+                <tbody class="cart-body">
+                    @foreach(var p in item.help)
+                    {
+                        <tr class="cart-row">
+                            <td class="cart-item">
+                                <img src="@p.Image.ImageUrlCouv" alt="Produit 1">
+                                <div class="cart-item-details">
+                                    <h3>@p.Produit.Nom_produit</h3>
+                                </div>
+                            </td>
+                            <td class="cart-price">@p.Produit.Prix Ariary</td>
+                            <td class="cart-price">@p.quantite</td>
+                            <td class="cart-total">@p.Prix</td>
+                            <td class="cart-remove"><button>Supprimer</button></td>
+                        </tr>
+                    }
+                    <tr class="cart-header">
+                        <th colspan="5">
+                            Prix de total à Payer chez @item.nomVendeur :  @item.prixChaqueVendeur Ariary
+                        </th>
+                    </tr>
+                </tbody>
+            }
+            <tfoot class="cart-footer">
+                <tr>
+                    <td colspan="4" class="delivery-address">
+                        <label for="address">Lot et Adresse de livraison :</label>
+                        <input type="text" id="address" name="address">
+                    </td>
+                    <td colspan="2" class="total-price">
+                        <h3>Prix Total : <span id="total-price">@ViewData["prixTotaux"] Ariary</span></h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="checkout">
+                        <a asp-controller="CommandeP" asp-action="LieuLivraison" class="checkout-btn">Adresse de livraison</a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>

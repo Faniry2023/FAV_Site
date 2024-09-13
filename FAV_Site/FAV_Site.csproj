@@ -1,0 +1,113 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\assets\images\acheteur.jpg" />
+    <Content Remove="wwwroot\assets\images\vendeur.png" />
+    <Content Remove="wwwroot\images\aire.png" />
+    <Content Remove="wwwroot\images\home.jpg" />
+    <Content Remove="wwwroot\images\img_log.svg" />
+    <Content Remove="wwwroot\images\img_reg.svg" />
+    <Content Remove="wwwroot\images\mvola.jpg" />
+    <Content Remove="wwwroot\images\or.png" />
+    <Content Remove="wwwroot\images\vis.png" />
+    <Content Remove="wwwroot\images\v_logo.png" />
+    <Content Remove="wwwroot\images\v_logo_s.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\Style.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\images\icons\bag.svg" />
+    <None Include="wwwroot\assets\images\icons\coat.svg" />
+    <None Include="wwwroot\assets\images\icons\cosmetics.svg" />
+    <None Include="wwwroot\assets\images\icons\dress.svg" />
+    <None Include="wwwroot\assets\images\icons\glasses.svg" />
+    <None Include="wwwroot\assets\images\icons\hat.svg" />
+    <None Include="wwwroot\assets\images\icons\jacket.svg" />
+    <None Include="wwwroot\assets\images\icons\jewelry.svg" />
+    <None Include="wwwroot\assets\images\icons\perfume.svg" />
+    <None Include="wwwroot\assets\images\icons\quotes.svg" />
+    <None Include="wwwroot\assets\images\icons\shoes.svg" />
+    <None Include="wwwroot\assets\images\icons\shorts.svg" />
+    <None Include="wwwroot\assets\images\icons\tee.svg" />
+    <None Include="wwwroot\assets\images\icons\watch.svg" />
+    <None Include="wwwroot\assets\images\logo\logo.svg" />
+    <None Include="wwwroot\assets\js\script.js" />
+    <None Include="wwwroot\assets_2\brand\bootstrap-logo-white.svg" />
+    <None Include="wwwroot\assets_2\brand\bootstrap-logo.svg" />
+    <None Include="wwwroot\assets_2\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\assets_2\dist\css\bootstrap.rtl.min.css.map" />
+    <None Include="wwwroot\assets_2\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\assets_2\dist\js\bootstrap.bundle.min.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AE.Net.Mail" Version="1.7.10" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
+    <PackageReference Include="Google.Apis.Gmail.v1" Version="1.68.0.3427" />
+    <PackageReference Include="MailKit" Version="4.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.Json" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MimeKit" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="QRCoder" Version="1.4.1" />
+    <PackageReference Include="RestSharp" Version="111.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="wwwroot\images\acheteur.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\aire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\mvola.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\or.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\vendeur.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\home.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\img_log.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\img_reg.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\vis.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\v_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\v_logo_s.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model FAV_Site.Models.PaymentModels;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payement</title>
+    <link rel="stylesheet" href="~/css/pay.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Payement</h1>
+        <img src="@Model.QrCodePayLoc" alt="Payment Image" class="payment-image">
+        <form>
+            <div class="radio-group">
+                <label class="radio-label">
+                    <input type="radio" name="paymentMethod" value="mvola" asp-for="MV" checked>
+                    <img src="~/images/mvola.jpg" alt="Mvola">
+                    Mvola
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="paymentMethod" value="airtel" asp-for="AM">
+                    <img src="~/images/or.png" alt="Airtel Money">
+                    Airtel Money
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="paymentMethod" value="orange" asp-for="OM">
+                    <img src="~/images/aire.png" alt="Orange Money">
+                    Orange Money
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="paymentMethod" value="visa" asp-for="VISA">
+                    <img src="~/images/vis.png" alt="Carte Visa">
+                    Carte Visa
+                </label>
+            </div>
+            <div class="input-group">
+                <label for="phoneNumber">Numéro Téléphone</label>
+                <input type="text" id="phoneNumber" placeholder="Entrez votre numéro de téléphone" asp-for="Num">
+            </div>
+            <div class="input-group">
+                <label for="description">Description</label>
+                <input type="text" id="description" placeholder="Entrez la description" asp-for="Description">
+            </div>
+            <div class="input-group">
+                <label for="cardNumber">Numéro Carte</label>
+                <input type="text" id="cardNumber" placeholder="Entrez votre numéro de carte" disabled asp-for="NumCarte">
+            </div>
+            <div class="input-group">
+                <label for="expiryDate">Date d'Expiration</label>
+                <input type="date" id="expiryDate" placeholder="MM/AA" disabled asp-for="DateExpiration">
+            </div>
+            <div class="input-group">
+                <label for="securityCode">Code de Sécurité</label>
+                <input type="text" id="securityCode" placeholder="Entrez le code de sécurité" disabled asp-for="codeSecurite">
+            </div>
+            <div class="input-group">
+                <button type="submit" id="payButton">Payer maintenant</button>
+            </div>
+        </form>
+    </div>
+    <script src="~/js/pay.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Google Maps";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #030b11;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #008cff;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #008cff;
+            border-radius: 5px;
+            margin-right: 10px;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .btn-save {
+            padding: 10px 20px;
+            background-color: #008cff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-save:hover {
+            background-color: #006bbf;
+        }
+
+        .map-container {
+            height: 550px;
+            width: 100%;
+            margin-top: 20px;
+            border: 1px solid #008cff;
+        }
+
+        .progress-bar {
+            display: none;
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar-inner {
+            width: 0;
+            height: 20px;
+            background-color: #008cff;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Google Maps</h2>
+
+        <div class="input-container">
+            <input type="text" id="nameInput" placeholder="Nom" class="input-field" />
+            <button id="saveButton" class="btn-save">Passer au Payment</button>
+        </div>
+
+        <input type="hidden" id="latitude" />
+        <input type="hidden" id="longitude" />
+
+        <div id="map" class="map-container"></div>
+
+        <div class="progress-bar" id="progressBar">
+            <div class="progress-bar-inner" id="progressBarInner">0%</div>
+        </div>
+    </div>
+
+    <script>
+        let map;
+        let marker;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 8
+            });
+
+            map.addListener('click', (event) => {
+                placeMarker(event.latLng);
+            });
+        }
+
+        function placeMarker(location) {
+            if (marker) {
+                marker.setPosition(location);
+            } else {
+                marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+            }
+            document.getElementById('latitude').value = location.lat();
+            document.getElementById('longitude').value = location.lng();
+        }
+
+        document.getElementById('saveButton').addEventListener('click', () => {
+            const nom = document.getElementById('nameInput').value;
+            const latitude = document.getElementById('latitude').value;
+            const longitude = document.getElementById('longitude').value;
+
+            if (!nom || !latitude || !longitude) {
+                alert('Veuillez entrer un nom de lieu et clique sur ta position pour récupéré ton latitude et la longitude.');
+                return;
+            }
+
+            // Show progress bar
+            const progressBar = document.getElementById('progressBar');
+            const progressBarInner = document.getElementById('progressBarInner');
+            progressBar.style.display = 'block';
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBarInner.style.width = progress + '%';
+                progressBarInner.textContent = progress + '%';
+                if (progress >= 100) {
+                    clearInterval(interval);
+                }
+            }, 100);
+
+            fetch('/CommandeP/SavePosition', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nom, latitude: parseFloat(latitude), longitude: parseFloat(longitude) })
+            }).then(response => response.json()).then(data => {
+                if (data.redirectUrl) {
+                    window.location.href = data.redirectUrl;
+                } else {
+                    alert('Error saving position.');
+                }
+            }).catch(error => alert('Fetch error: ' + error));
+        });
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=@ViewBag.GoogleMapsApiKey&callback=initMap" async defer></script>
+</body>
+
+</html>

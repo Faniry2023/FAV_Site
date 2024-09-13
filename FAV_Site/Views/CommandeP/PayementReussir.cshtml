@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de Paiement</title>
+    <link rel="stylesheet" href="~/css/paye.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <img src="~/images/vrai.png" alt="Confirmation Image" class="confirmation-image">
+            <h1>Paiement Réussi</h1>
+            <h2>
+                Bonjour @ViewData["prenom"] !!</h2>
+            <p>Merci de nous avoir fait confiance !</p>
+            <p>Votre paiement a été effectué avec succès.</p>
+            <button class="btn-shop">Continuer vos achats</button>
+        </div>
+    </div>
+</body>
+</html>

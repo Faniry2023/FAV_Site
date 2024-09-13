@@ -1,0 +1,202 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #030b11;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 800px;
+}
+
+.post {
+    background-color: #1c1c1e;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #008cff;
+}
+
+.post-info p {
+    margin: 0;
+    font-size: 12px;
+    color: gray;
+}
+
+.post-content {
+    margin-top: 20px;
+}
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .spec-table th, .spec-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        color: white;
+    }
+
+    .spec-table th {
+        background-color: #008cff;
+        text-align: left;
+    }
+
+.post-image {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.post-footer {
+    margin-top: 20px;
+}
+
+.post-actions button, .post-actions form button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #008cff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .post-actions button:hover, .post-actions form button:hover {
+        background-color: #007acc;
+    }
+
+.comments-section {
+    margin-top: 20px;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-content h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #008cff;
+}
+
+.comment-content p {
+    margin: 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.add-comment {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+    .add-comment input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-right: 10px;
+        background-color: #1c1c1e;
+        color: white;
+    }
+
+    .add-comment button {
+        padding: 8px 12px;
+        border: none;
+        background-color: #008cff;
+        color: white;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+        .add-comment button:hover {
+            background-color: #007acc;
+        }
+
+.legend {
+    margin-top: 20px;
+    background-color: #1c1c1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+    .legend h2 {
+        margin-top: 0;
+        color: #008cff;
+    }
+
+    .legend ul {
+        padding-left: 20px;
+    }
+
+        .legend ul li {
+            margin-bottom: 10px;
+            color: white;
+        }
+
+/* Ajout du style pour l'input de quantité */
+.add-to-cart-form {
+    display: flex;
+    align-items: center;
+}
+
+    .add-to-cart-form input[type="number"] {
+        width: 80px;
+        padding: 8px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #1c1c1e;
+        color: white;
+    }
+
+        .add-to-cart-form input[type="number"]::-webkit-inner-spin-button,
+        .add-to-cart-form input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .add-to-cart-form input[type="number"]::-moz-inner-spin-button,
+        .add-to-cart-form input[type="number"]::-moz-outer-spin-button {
+            -moz-appearance: none;
+            margin: 0;
+        }

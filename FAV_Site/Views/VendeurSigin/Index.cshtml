@@ -1,0 +1,112 @@
+﻿@model FAV_Site.Models.Uti_vendeurModels;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/signVendeur.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    />
+    <title>vit hospital</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+            <form action="#">
+          <p style="text-decoration: underline;">code de référence du logiciel</p>
+          <p style="font-size: 20px; font-weight:bold">
+                    @ViewData["refe"]
+          </p>
+          <br /><br /><br /><br />
+
+          <div class="social-container">
+            <a href="https:www.facebook.com" class="social" id="fb">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https:www.instagram.com" class="social" id="ins">
+              <i class="fab fa-instagram"> </i>
+            </a>
+            <a href="https://www.gmail.com" class="social" id="gm">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.twitter.com" class="social" id="tw">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form method="post" asp-controller="VendeurSigin" asp-action="Register">
+          <h1>Vendeur</h1>
+
+          <input type="text" placeholder="nom de compagnie"  required asp-for="Nom_Societe"/>
+          <input type="text" placeholder="siège compagnie" required asp-for="LienVen"/>
+          <input type="text" readonly value="(obligatoire), click sur 'voir info du logiciel' "/>
+          <button>Enregistrer</button>
+          <br /><br /><br /><br /><br /><br />
+
+          <div class="social-container">
+            <a href="https:www.facebook.com" class="social" id="fb">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https:www.instagram.com" class="social" id="ins">
+              <i class="fab fa-instagram"> </i>
+            </a>
+            <a href="https://www.gmail.com" class="social" id="gm">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.twitter.com" class="social" id="tw">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Bonjour @ViewData["prenom"]</h1>
+            <p>
+              voici votre code de référence du logiciel. copié le dans un endroit sûre et ne le donne pas à persone.
+              Si vous avez términer de télécharger le logiciel et bien mémoriser votre code de référence, cliquer sur "términé" et puis enregistrer
+            </p>
+            <br />
+            <a style="color: rgb(255, 255, 255)" href="#">lien pour télécharger le logiciel</a>
+            <button class="press" id="signIn" >Términer</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+                    <h1>Bonjour @ViewData["prenom"] </h1>
+            <p>vous êtes presque à téeminer l'inscription en tant que vendeur.Veuillez
+                appuyer d'abord sur "voir info du logiciel" pour récupéré le logiciel et son code de référence
+            </p>
+            <br />
+            <button class="press" id="signUp" style="color: white">
+              Voir info du logiciel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      const signUpButton = document.getElementById("signUp");
+      const signInButton = document.getElementById("signIn");
+      const container = document.getElementById("container");
+
+      signUpButton.addEventListener("click", () => {
+        container.classList.add("right-panel-active");
+      });
+
+      signInButton.addEventListener("click", () => {
+        container.classList.remove("right-panel-active");
+      });
+    </script>
+  </body>
+</html>

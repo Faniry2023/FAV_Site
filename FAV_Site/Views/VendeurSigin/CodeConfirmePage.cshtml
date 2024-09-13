@@ -1,0 +1,39 @@
+﻿@model FAV_Site.Helper.RecCodeConf;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de Code</title>
+    <link rel="stylesheet" href="~/css/mail.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Confirmation de Code</h1>
+        <p>Nous avons envoyé un code de confirmation à votre adresse mail. Copiez-le dans le champ ci-dessous.</p>
+        <img src="~/images/v_logo.png" alt="Confirmation Image" class="confirmation-image">
+        <form method="post" asp-controller="VendeurSigin" asp-action="CodeConfirmePage">
+            <div class="code-inputs">
+                <input type="number" id="code1" class="code-input" max="9" min="0" maxlength="1" required asp-for="Nb1">
+                <input type="number" id="code2" class="code-input" max="9" min="0" maxlength="1" required asp-for="Nb2">
+                <input type="number" id="code3" class="code-input" max="9" min="0" maxlength="1" required asp-for="Nb3">
+                <input type="number" id="code4" class="code-input" max="9" min="0" maxlength="1" required asp-for="Nb4">
+                <input type="number" id="code5" class="code-input" max="9" min="0" maxlength="1" required asp-for="Nb5">
+                <input type="number" id="code6" class="code-input" max="9" min="0" maxlength="1" required asp-for="Nb6">
+                <input type="number" id="code7" class="code-input" max="9" min="0" maxlength="1" required asp-for="Nb7">
+            </div>
+            <p id="error-message" class="error-message">
+                @ViewData["error"]
+            </p>
+            <button type="submit" class="btn-validate">Valider</button>
+        </form>
+    </div>
+    <script src="~/js/mail.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon site</title>
+    <link rel="stylesheet" href="~/css/headers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header style="background-color: #008cff;">
+        <div class="navbar">
+            <div class="logo">
+                <h1>F.A.V</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a asp-controller="Accueil" asp-action="Index">Accueil</a></li>
+                    <li><a href="#">Vendeur</a></li>
+                    <li><a asp-controller="Accueil" asp-action="MonPanier">Mon Panier</a></li>
+                    <li><a href="#">Historique</a></li>
+                    @if ((bool)ViewData["isConnectedOrNo"] == true)
+                    {
+                        <li class="profile" id="profile-toggle">
+                            <img src="@ViewData["image"]" alt="Profile Image" width="100" height="100">
+                            <div class="profile-dropdown" style="z-index:3;">
+                                <div class="profile-header">
+                                    <p>@ViewData["Nom"]</p>
+                                </div>
+                                <ul class="profile-links">
+                                    <li><a href="#"><i class="fa fa-user-circle"></i> Gérer mon compte</a></li>
+                                    <li><a asp-controller="Login" asp-action="LogOut"><i class="fa fa-sign-out"></i> Se déconnecter</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    }
+                    @if ((bool)ViewData["isConnectedOrNo"] == false)
+                    {
+                        <a asp-controller="Login" asp-action="Index" class="btn btn-outline-light">Se connecter</a>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="content">
+        <!-- Votre contenu ici -->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#profile-toggle").click(function () {
+                $(".profile-dropdown").toggle();
+            });
+        });
+    </script>
+</body>
+</html>

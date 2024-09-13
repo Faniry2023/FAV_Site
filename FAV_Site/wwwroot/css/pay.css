@@ -1,0 +1,90 @@
+body {
+    background-color: #030b11;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    border: 5px #0254a6 solid;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #030b11;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.payment-image {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 300px;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: #fff;
+    color: #030b11;
+    padding: 5px;
+    margin: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.radio-label:hover {
+    background-color: #f0f0f0;
+}
+
+.radio-group img {
+    border-radius: 50%;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+input[disabled] {
+    background-color: #555;
+}
+
+#payButton {
+    border: 2px #0254a6 solid;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #030b11;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#payButton:hover {
+    background-color: #0254a6;
+    border: 1px white solid;
+    border-radius: 10px;
+}
